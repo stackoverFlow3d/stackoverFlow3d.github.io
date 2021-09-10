@@ -8,20 +8,23 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>HDRP学习笔记 | 芹菜的布洛克</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阅读栋哥书的笔记 ![2021-09-10 (2)](C:\Users\HP\OneDrive\图片\屏幕快照\2021-09-10 (2).png)">
+  <meta name="description" content="阅读栋哥书的笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDRP学习笔记">
 <meta property="og:url" content="http://example.com/2021/09/06/HDRP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="芹菜的布洛克">
-<meta property="og:description" content="阅读栋哥书的笔记 ![2021-09-10 (2)](C:\Users\HP\OneDrive\图片\屏幕快照\2021-09-10 (2).png)">
+<meta property="og:description" content="阅读栋哥书的笔记">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:/Users/HP/OneDrive/图片/屏幕快照/7_BI(%ZTIZZAOYQTV[KC]6R.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/10/vo1Vy5fMU8i73R9.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/10/bhiBxcrCFTalvS2.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/10/KmabD821SjRAoNt.png">
+<meta property="og:image" content="https://i.loli.net/2021/09/10/vo1Vy5fMU8i73R9.png">
 <meta property="article:published_time" content="2021-09-06T04:41:14.000Z">
-<meta property="article:modified_time" content="2021-09-10T13:24:55.271Z">
+<meta property="article:modified_time" content="2021-09-10T13:43:26.226Z">
 <meta property="article:author" content="芹菜">
 <meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/HP/OneDrive/图片/屏幕快照/7_BI(%ZTIZZAOYQTV[KC]6R.png">
+<meta name="twitter:image" content="https://i.loli.net/2021/09/10/vo1Vy5fMU8i73R9.png">
   
     <link rel="alternative" href="/atom.xml" title="芹菜的布洛克" type="application/atom+xml">
   
@@ -186,7 +189,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>阅读栋哥书的笔记</p>
-<p>![2021-09-10 (2)](C:\Users\HP\OneDrive\图片\屏幕快照\2021-09-10 (2).png)</p>
+<p><img src="https://i.loli.net/2021/09/10/vo1Vy5fMU8i73R9.png" alt="2021-09-10 _2_.png"></p>
 <span id="more"></span>
 
 <hr>
@@ -294,13 +297,14 @@
 <h4 id="光照探针"><a href="#光照探针" class="headerlink" title="光照探针"></a>光照探针</h4><p>为场景中的物体提供高效的间接光照，确保小物体也可以被照亮（节约烘焙的内存）。</p>
 <p>为了表现逼真的材质效果，除了要在场景中添加足够且类型正确的光源，我们也要为场景添加反射效果。</p>
 <h4 id="反射探针："><a href="#反射探针：" class="headerlink" title="反射探针："></a>反射探针：</h4><p>为了实现精确计算的反射效果，并且达到一定帧率，我们使用反射探针，来为场景提供反射信息</p>
+<p><img src="https://i.loli.net/2021/09/10/bhiBxcrCFTalvS2.png" alt="27JJ__W0OABD_U__UY@5@Q0.png"></p>
 <h4 id="烘焙光照贴图"><a href="#烘焙光照贴图" class="headerlink" title="烘焙光照贴图"></a>烘焙光照贴图</h4><p>场景中只有Skybox与多个光源提供的直接光照。没有被照到的地方是漆黑一片，看上去非常不真实。现实世界中，存在间接光照，也就是光线会发生反射和折射。这样的话，黑色的区域或多或少会受到一些间接光照而被照亮（不过场景中并没有黑色的区域，而是被一个整体的环境光源照亮，这是因为天空提供了整个场景的环境光）。</p>
-<p><img src="C:\Users\HP\OneDrive\图片\屏幕快照\7_BI(%ZTIZZAOYQTV[KC]6R.png" alt="7_BI(%ZTIZZAOYQTV[KC]6R"></p>
+<p><img src="https://i.loli.net/2021/09/10/KmabD821SjRAoNt.png" alt="IZW64Y@_PS~_JCJGVZ_Q@_7.png"></p>
 <p>为了解决这个问题，可以使用光照贴图烘焙技术来为整个场景提供全局光照（GI）</p>
 <p><strong>我在烘焙进行到一半时unity闪退，经排查发现是c盘已满的问题（烘焙的临时文件存放在c盘）</strong></p>
 <p>在后面的章节会详解光照烘焙相关的知识。</p>
 <p>HDRP在进行光照烘焙的过程中，也会对baked模式的光照探针或者反射探针进行烘焙。（也可以直接在组件中进行烘焙）</p>
-<p>![2021-09-10 (2)](C:\Users\HP\OneDrive\图片\屏幕快照\2021-09-10 (2).png)</p>
+<p><img src="https://i.loli.net/2021/09/10/vo1Vy5fMU8i73R9.png" alt="2021-09-10 _2_.png"></p>
 <h4 id="本章总结："><a href="#本章总结：" class="headerlink" title="本章总结："></a>本章总结：</h4><p>通关本章案例的学习，了解了以下知识：</p>
 <ul>
 <li>Volume的使用</li>
