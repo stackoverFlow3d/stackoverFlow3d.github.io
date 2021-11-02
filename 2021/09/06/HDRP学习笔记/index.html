@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/09/10/KmabD821SjRAoNt.png">
 <meta property="og:image" content="https://i.loli.net/2021/09/10/cVU1MLv56hWbwe8.png">
 <meta property="article:published_time" content="2021-09-06T04:41:14.000Z">
-<meta property="article:modified_time" content="2021-09-13T14:17:21.082Z">
+<meta property="article:modified_time" content="2021-09-26T09:06:11.915Z">
 <meta property="article:author" content="芹菜">
 <meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary">
@@ -285,6 +285,7 @@
 <p>Exposure：曝光。控制整个画面的曝光度。</p>
 <p><img src="https://i.loli.net/2021/09/13/Thm5zIRlX8uA2L6.png" alt="@6DYK_TCDEW_234K6961IOC.png"></p>
 <p>添加完曝光后，整个画面依然不够真实，但是色调和亮度自然多了。</p>
+<p>注：此曝光和天空盒中的曝光不同，前者是天空盒环境光照的曝光度。</p>
 <img src="https://i.loli.net/2021/09/13/RVyObGL9rw4CkEJ.png" alt="42YO_SIE_9OA5@___E1T0FH.png" style="zoom:80%;" />
 
 <p><strong>抗锯齿</strong>：</p>
@@ -341,8 +342,16 @@
 <p>HDRP配置文件中的参数可以分为七类，下面我们来认识一下这些参数。</p>
 <h4 id="1-Rendering"><a href="#1-Rendering" class="headerlink" title="1. Rendering"></a>1. Rendering</h4><p><strong>（1）Color Buffer Format（颜色缓存格式）</strong></p>
 <p><strong>（2）Lit Shader Mode(Lit着色器模式)</strong></p>
+<p>HDRP使用的默认着色器。可以选择以下三种模式。</p>
+<ul>
+<li>Forward：Lit shader仅使用前向渲染</li>
+<li>Deferred：Lit shader会使用延迟渲染，一些高级材质还会使用向前渲染</li>
+<li>Both（延迟和向前渲染都可用）</li>
+</ul>
 <p><strong>（3）Motion Vectors(运动矢量)</strong></p>
+<p>HDRP可以在屏幕空间反射和运动模糊中使用运动矢量。通过Camera组件启用的Temporal Antialiasing（TAA）必须使用运动矢量才能正常工作。</p>
 <p><strong>（4）Runtime Debug Display</strong></p>
+<p>启用该选项后可以在运行时显示灯光和材质的属性信息。禁用则可以减少构建时间和着色器内存</p>
 <p><strong>（5）Dithering Cross-fade(平滑转换)</strong></p>
 <p><strong>（6）Terrain Hole（地形洞）</strong></p>
 <p><strong>（7）Transparent Backface（透明背面）</strong></p>
@@ -355,22 +364,18 @@
 <p><strong>（14）Decals（贴花）</strong></p>
 <p><strong>（15）Dynamic Resolution（动态分辨率）</strong></p>
 <p><strong>（16）Low res Transparency（低分辨率透明）</strong></p>
-<h4 id="2-Lighting（光照）"><a href="#2-Lighting（光照）" class="headerlink" title="2. Lighting（光照）"></a>2. Lighting（光照）</h4><p><strong>（1）</strong></p>
-<p><strong>（2）</strong></p>
-<p><strong>（3）</strong></p>
-<p><strong>（4）Runtime Debug Display</strong></p>
-<p><strong>（5）Dithering Cross-fade(平滑转换)</strong></p>
-<p><strong>（6）Terrain Hole（地形洞）</strong></p>
-<p><strong>（7）Transparent Backface（透明背面）</strong></p>
-<p><strong>（8）Transparent Depth Prepass(透明深度预处理)</strong></p>
-<h4 id="3-Lighting（光照）"><a href="#3-Lighting（光照）" class="headerlink" title="3. Lighting（光照）"></a>3. Lighting（光照）</h4><p><strong>（1）</strong></p>
-<p><strong>（2）</strong></p>
-<p><strong>（3）</strong></p>
-<h4 id="4-Material-材质"><a href="#4-Material-材质" class="headerlink" title="4. Material(材质)"></a>4. Material(材质)</h4><h4 id="5-后处理"><a href="#5-后处理" class="headerlink" title="5. 后处理"></a>5. 后处理</h4><h4 id="6-后处理质量设置"><a href="#6-后处理质量设置" class="headerlink" title="6. 后处理质量设置"></a>6. 后处理质量设置</h4><p><strong>（1）</strong></p>
-<p><strong>（2）</strong></p>
-<p><strong>（3）</strong></p>
-<p><strong>（4）</strong></p>
-<h4 id="7-XR设置"><a href="#7-XR设置" class="headerlink" title="7. XR设置"></a>7. XR设置</h4><h3 id="Volume框架详解"><a href="#Volume框架详解" class="headerlink" title="Volume框架详解"></a>Volume框架详解</h3><p>Volume框架的作用：</p>
+<h4 id="2-Lighting（光照）"><a href="#2-Lighting（光照）" class="headerlink" title="2. Lighting（光照）"></a>2. Lighting（光照）</h4><p><strong>（1）Screen Space Ambient Occlusion（屏幕空间环境光遮蔽）</strong></p>
+<p><strong>（2）Volumetric（体积光）</strong></p>
+<p><strong>（3）Light Layers（光照层）</strong></p>
+<p><strong>（4）Cookies</strong></p>
+<p><strong>（5）Reflections</strong></p>
+<p><strong>（6）Sky</strong></p>
+<p><strong>（7）Shadows</strong></p>
+<p><strong>（8）Lights</strong></p>
+<h4 id="3-Lighting-Quality-Settings（光照质量设置）"><a href="#3-Lighting-Quality-Settings（光照质量设置）" class="headerlink" title="3. Lighting Quality Settings（光照质量设置）"></a>3. Lighting Quality Settings（光照质量设置）</h4><p><strong>（1）Screen Space Ambient Occlusion（屏幕空间环境光遮蔽）</strong></p>
+<p><strong>（2）Contack Shadows（接触阴影  ）</strong></p>
+<p><strong>（3）Screen Space Reflection</strong></p>
+<h4 id="4-Material-材质"><a href="#4-Material-材质" class="headerlink" title="4. Material(材质)"></a>4. Material(材质)</h4><h4 id="5-后处理"><a href="#5-后处理" class="headerlink" title="5. 后处理"></a>5. 后处理</h4><h4 id="6-后处理质量设置"><a href="#6-后处理质量设置" class="headerlink" title="6. 后处理质量设置"></a>6. 后处理质量设置</h4><h4 id="7-XR设置"><a href="#7-XR设置" class="headerlink" title="7. XR设置"></a>7. XR设置</h4><h3 id="Volume框架详解"><a href="#Volume框架详解" class="headerlink" title="Volume框架详解"></a>Volume框架详解</h3><p>Volume框架的作用：</p>
 <ul>
 <li> 用于为场景设置来自天空盒的环境光照。</li>
 <li> 设置阴影相关的各项参数，包括可用于场景中细小物体上Contact Shadow和Micro Shadow。</li>
@@ -379,7 +384,13 @@
 <li> 设置后处理效果（Post-processing） </li>
 <li>设置实时光线追踪（Ray Tracing）</li>
 </ul>
-<h2 id="四-HDRP光照系统详解"><a href="#四-HDRP光照系统详解" class="headerlink" title="四. HDRP光照系统详解"></a>四. HDRP光照系统详解</h2><h2 id="五-Lighting-Map（光照烘焙）详解"><a href="#五-Lighting-Map（光照烘焙）详解" class="headerlink" title="五. Lighting Map（光照烘焙）详解"></a>五. Lighting Map（光照烘焙）详解</h2><h4 id="如何避免GPU烘焙自动切换成CPU烘焙？"><a href="#如何避免GPU烘焙自动切换成CPU烘焙？" class="headerlink" title="如何避免GPU烘焙自动切换成CPU烘焙？"></a>如何避免GPU烘焙自动切换成CPU烘焙？</h4><p>场景中参与烘焙的资源量是不一样的，因此完全避免是不可能的。我们可以做的是想办法节约系统的显存。</p>
+<p>使用Volume框架的方法就是把Volume组件添加到场景中的一个空物体上，然后在其上添加各种需要的Override。</p>
+<p>接下来我们使用项目来说明这些Volume重载。</p>
+<h4 id="Exposure"><a href="#Exposure" class="headerlink" title="Exposure"></a>Exposure</h4><p>HDRP是完全基于物理的渲染系统，所以<strong>想要正确显示场景画面就必须为场景设置正确的曝光</strong>。</p>
+<p>曝光值也可以参考真实世界的曝光值</p>
+<p> HDRP提供Use Physical Camera模式，该模式可以利用摄影的知识控制画面的曝光度。</p>
+<h4 id="Fog-雾效制作"><a href="#Fog-雾效制作" class="headerlink" title="Fog(雾效制作)"></a>Fog(雾效制作)</h4><h4 id="Light"><a href="#Light" class="headerlink" title="Light"></a>Light</h4><h2 id="四-HDRP光照系统详解"><a href="#四-HDRP光照系统详解" class="headerlink" title="四. HDRP光照系统详解"></a>四. HDRP光照系统详解</h2><p>本章和下一章将重点讲解如何给HDRP场景打光</p>
+<h2 id="五-Lighting-Map（光照烘焙）详解"><a href="#五-Lighting-Map（光照烘焙）详解" class="headerlink" title="五. Lighting Map（光照烘焙）详解"></a>五. Lighting Map（光照烘焙）详解</h2><h4 id="如何避免GPU烘焙自动切换成CPU烘焙？"><a href="#如何避免GPU烘焙自动切换成CPU烘焙？" class="headerlink" title="如何避免GPU烘焙自动切换成CPU烘焙？"></a>如何避免GPU烘焙自动切换成CPU烘焙？</h4><p>场景中参与烘焙的资源量是不一样的，因此完全避免是不可能的。我们可以做的是想办法节约系统的显存。</p>
 <h5 id="节省系统显存的方法："><a href="#节省系统显存的方法：" class="headerlink" title="节省系统显存的方法："></a>节省系统显存的方法：</h5><ol>
 <li>在烘焙开始前将Texture Quality调整为Eighth Res。在烘焙结束后调整回Full Res。</li>
 <li>把Project Setting窗口最大化。</li>
@@ -500,9 +511,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/11/02/%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法笔记
+        
+      </div>
+    </a>
   
-    <a href="/2021/09/06/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%89%BA%E6%9C%AF%E8%AE%BE%E8%AE%A1%E4%B8%AD%E5%88%B6%E9%80%A0%E5%AE%8F%E4%BC%9F%E7%9A%84%E8%A7%84%E6%A8%A1%E6%84%9F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">如何在艺术设计中制造宏伟的规模感</div>
+  
+    <a href="/2021/08/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机图形学笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -529,7 +549,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-HDRP%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">一. HDRP入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%85%B8%E5%9E%8B%E7%9A%84HDRP%E5%9C%BA%E6%99%AF%E5%BA%94%E8%AF%A5%E5%8C%85%E5%90%AB%E4%BB%A5%E4%B8%8B%E8%A6%81%E7%B4%A0%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">一个典型的HDRP场景应该包含以下要素：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HDRP%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E6%B8%B2%E6%9F%93"><span class="toc-number">1.0.2.</span> <span class="toc-text">HDRP基于物理的渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%EF%BC%9F"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">什么是基于物理？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%EF%BC%9F"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">为什么要用基于物理？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8F%AA%E8%83%BD%E7%94%A8%E4%BA%8E%E5%86%99%E5%AE%9E%E9%A3%8E%E6%A0%BC%E5%90%97%EF%BC%9F"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">基于物理的渲染只能用于写实风格吗？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HDRP%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.0.3.</span> <span class="toc-text">HDRP配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%90%E8%B4%A8%E5%92%8C%E7%9D%80%E8%89%B2%E5%99%A8"><span class="toc-number">1.0.4.</span> <span class="toc-text">材质和着色器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%B4%B4%E5%9B%BE%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D%EF%BC%9A"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">常用贴图有以下几种：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9D%90%E8%B4%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B7%E4%BD%93%E5%90%AB%E4%B9%89"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">关于材质的一些具体含义</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SurFace-Type"><span class="toc-number">1.0.4.2.1.</span> <span class="toc-text">SurFace Type</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Material-Type"><span class="toc-number">1.0.4.2.2.</span> <span class="toc-text">Material Type</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Render-Pipleline%E7%9B%B8%E5%85%B3%E8%8F%9C%E5%8D%95"><span class="toc-number">1.0.5.</span> <span class="toc-text">Render Pipleline相关菜单</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Look-Dev"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">Look Dev</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%AE%9E%E7%8E%B0%E5%B8%82%E6%94%BF%E5%BA%9C%E5%8A%9E%E5%85%AC%E5%AE%A4%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">二. 实现市政府办公室场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Volume%E6%A1%86%E6%9E%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用Volume框架设置环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%B1%8F%E5%B9%95%E5%90%8E%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C"><span class="toc-number">2.0.2.</span> <span class="toc-text">添加屏幕后处理效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%89%E6%BA%90"><span class="toc-number">2.0.3.</span> <span class="toc-text">添加光源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E7%85%A7%E6%8E%A2%E9%92%88"><span class="toc-number">2.0.4.</span> <span class="toc-text">光照探针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%8E%A2%E9%92%88%EF%BC%9A"><span class="toc-number">2.0.5.</span> <span class="toc-text">反射探针：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%83%98%E7%84%99%E5%85%89%E7%85%A7%E8%B4%B4%E5%9B%BE"><span class="toc-number">2.0.6.</span> <span class="toc-text">烘焙光照贴图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E7%AB%A0%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">2.0.7.</span> <span class="toc-text">本章总结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-HDRP%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8CVolume%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">三.HDRP配置文件和Volume框架详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HDRP%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">HDRP配置文件介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Frame-Settings%EF%BC%88%E5%B8%A7%E8%AE%BE%E7%BD%AE%EF%BC%89"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">Frame Settings（帧设置）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volume%E6%A1%86%E6%9E%B6"><span class="toc-number">3.2.</span> <span class="toc-text">Volume框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Rendering"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. Rendering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Lighting%EF%BC%88%E5%85%89%E7%85%A7%EF%BC%89"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. Lighting（光照）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Lighting%EF%BC%88%E5%85%89%E7%85%A7%EF%BC%89"><span class="toc-number">3.2.3.</span> <span class="toc-text">3. Lighting（光照）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Material-%E6%9D%90%E8%B4%A8"><span class="toc-number">3.2.4.</span> <span class="toc-text">4. Material(材质)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-number">3.2.5.</span> <span class="toc-text">5. 后处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%90%8E%E5%A4%84%E7%90%86%E8%B4%A8%E9%87%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.6.</span> <span class="toc-text">6. 后处理质量设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-XR%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.7.</span> <span class="toc-text">7. XR设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volume%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">Volume框架详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-HDRP%E5%85%89%E7%85%A7%E7%B3%BB%E7%BB%9F%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">四. HDRP光照系统详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-Lighting-Map%EF%BC%88%E5%85%89%E7%85%A7%E7%83%98%E7%84%99%EF%BC%89%E8%AF%A6%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">五. Lighting Map（光照烘焙）详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8DGPU%E7%83%98%E7%84%99%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%88%90CPU%E7%83%98%E7%84%99%EF%BC%9F"><span class="toc-number">5.0.1.</span> <span class="toc-text">如何避免GPU烘焙自动切换成CPU烘焙？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8A%82%E7%9C%81%E7%B3%BB%E7%BB%9F%E6%98%BE%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">5.0.1.1.</span> <span class="toc-text">节省系统显存的方法：</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-HDRP%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">一. HDRP入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%85%B8%E5%9E%8B%E7%9A%84HDRP%E5%9C%BA%E6%99%AF%E5%BA%94%E8%AF%A5%E5%8C%85%E5%90%AB%E4%BB%A5%E4%B8%8B%E8%A6%81%E7%B4%A0%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">一个典型的HDRP场景应该包含以下要素：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HDRP%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E6%B8%B2%E6%9F%93"><span class="toc-number">1.0.2.</span> <span class="toc-text">HDRP基于物理的渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%EF%BC%9F"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">什么是基于物理？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%EF%BC%9F"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">为什么要用基于物理？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%89%A9%E7%90%86%E7%9A%84%E6%B8%B2%E6%9F%93%E5%8F%AA%E8%83%BD%E7%94%A8%E4%BA%8E%E5%86%99%E5%AE%9E%E9%A3%8E%E6%A0%BC%E5%90%97%EF%BC%9F"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">基于物理的渲染只能用于写实风格吗？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HDRP%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.0.3.</span> <span class="toc-text">HDRP配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%90%E8%B4%A8%E5%92%8C%E7%9D%80%E8%89%B2%E5%99%A8"><span class="toc-number">1.0.4.</span> <span class="toc-text">材质和着色器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%B4%B4%E5%9B%BE%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D%EF%BC%9A"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">常用贴图有以下几种：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9D%90%E8%B4%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B7%E4%BD%93%E5%90%AB%E4%B9%89"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">关于材质的一些具体含义</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SurFace-Type"><span class="toc-number">1.0.4.2.1.</span> <span class="toc-text">SurFace Type</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Material-Type"><span class="toc-number">1.0.4.2.2.</span> <span class="toc-text">Material Type</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Render-Pipleline%E7%9B%B8%E5%85%B3%E8%8F%9C%E5%8D%95"><span class="toc-number">1.0.5.</span> <span class="toc-text">Render Pipleline相关菜单</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Look-Dev"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">Look Dev</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%AE%9E%E7%8E%B0%E5%B8%82%E6%94%BF%E5%BA%9C%E5%8A%9E%E5%85%AC%E5%AE%A4%E5%9C%BA%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">二. 实现市政府办公室场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Volume%E6%A1%86%E6%9E%B6%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用Volume框架设置环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%B1%8F%E5%B9%95%E5%90%8E%E5%A4%84%E7%90%86%E6%95%88%E6%9E%9C"><span class="toc-number">2.0.2.</span> <span class="toc-text">添加屏幕后处理效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%85%89%E6%BA%90"><span class="toc-number">2.0.3.</span> <span class="toc-text">添加光源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E7%85%A7%E6%8E%A2%E9%92%88"><span class="toc-number">2.0.4.</span> <span class="toc-text">光照探针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E6%8E%A2%E9%92%88%EF%BC%9A"><span class="toc-number">2.0.5.</span> <span class="toc-text">反射探针：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%83%98%E7%84%99%E5%85%89%E7%85%A7%E8%B4%B4%E5%9B%BE"><span class="toc-number">2.0.6.</span> <span class="toc-text">烘焙光照贴图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E7%AB%A0%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">2.0.7.</span> <span class="toc-text">本章总结：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-HDRP%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8CVolume%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">三.HDRP配置文件和Volume框架详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HDRP%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">HDRP配置文件介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Frame-Settings%EF%BC%88%E5%B8%A7%E8%AE%BE%E7%BD%AE%EF%BC%89"><span class="toc-number">3.1.0.1.</span> <span class="toc-text">Frame Settings（帧设置）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volume%E6%A1%86%E6%9E%B6"><span class="toc-number">3.2.</span> <span class="toc-text">Volume框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Rendering"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. Rendering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Lighting%EF%BC%88%E5%85%89%E7%85%A7%EF%BC%89"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. Lighting（光照）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Lighting-Quality-Settings%EF%BC%88%E5%85%89%E7%85%A7%E8%B4%A8%E9%87%8F%E8%AE%BE%E7%BD%AE%EF%BC%89"><span class="toc-number">3.2.3.</span> <span class="toc-text">3. Lighting Quality Settings（光照质量设置）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Material-%E6%9D%90%E8%B4%A8"><span class="toc-number">3.2.4.</span> <span class="toc-text">4. Material(材质)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-number">3.2.5.</span> <span class="toc-text">5. 后处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%90%8E%E5%A4%84%E7%90%86%E8%B4%A8%E9%87%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.6.</span> <span class="toc-text">6. 后处理质量设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-XR%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.7.</span> <span class="toc-text">7. XR设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volume%E6%A1%86%E6%9E%B6%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.3.</span> <span class="toc-text">Volume框架详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Exposure"><span class="toc-number">3.3.1.</span> <span class="toc-text">Exposure</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fog-%E9%9B%BE%E6%95%88%E5%88%B6%E4%BD%9C"><span class="toc-number">3.3.2.</span> <span class="toc-text">Fog(雾效制作)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Light"><span class="toc-number">3.3.3.</span> <span class="toc-text">Light</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-HDRP%E5%85%89%E7%85%A7%E7%B3%BB%E7%BB%9F%E8%AF%A6%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">四. HDRP光照系统详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-Lighting-Map%EF%BC%88%E5%85%89%E7%85%A7%E7%83%98%E7%84%99%EF%BC%89%E8%AF%A6%E8%A7%A3"><span class="toc-number">5.</span> <span class="toc-text">五. Lighting Map（光照烘焙）详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8DGPU%E7%83%98%E7%84%99%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E6%88%90CPU%E7%83%98%E7%84%99%EF%BC%9F"><span class="toc-number">5.0.1.</span> <span class="toc-text">如何避免GPU烘焙自动切换成CPU烘焙？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8A%82%E7%9C%81%E7%B3%BB%E7%BB%9F%E6%98%BE%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">5.0.1.1.</span> <span class="toc-text">节省系统显存的方法：</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -661,14 +681,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">建模</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">美术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计划</a>
               </li>
              
@@ -686,6 +698,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">计算机图形学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
