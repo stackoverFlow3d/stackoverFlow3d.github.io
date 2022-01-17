@@ -16,7 +16,7 @@
 <meta property="og:description" content="这段时间准备全力攻克数据结构。主要的学习方式是刷Leecode和《STL源码剖析》等书籍，这篇博客旨在记录一下过程中学到的东西。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-11T03:46:01.177Z">
+<meta property="article:modified_time" content="2021-11-14T07:51:32.735Z">
 <meta property="article:author" content="芹菜">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -216,6 +216,11 @@
 </ul>
 <h3 id="常见模式"><a href="#常见模式" class="headerlink" title="常见模式"></a>常见模式</h3><p>1．滑动窗口<br>2．二指针或迭代器<br>3．快速和慢速指针或迭代器<br>4．合并区间<br>5．循环排序<br>6．原地反转链表<br>7．树的宽度优先搜索（Tree BFS）<br>8．树的深度优先搜索（Tree DFS）<br>9．Two Heaps<br>10．子集<br>11．经过修改的二叉搜索<br>12． 前 K 个元素<br>13． K 路合并<br>14．拓扑排序</p>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/kYydNswVfCcts2fEmucnlQ">https://mp.weixin.qq.com/s/kYydNswVfCcts2fEmucnlQ</a></p>
+<p>Trie：前缀树</p>
+<p>动态规划</p>
+<p>动态规划本质是寻找子问题的最优解，寻找转移方程。</p>
+<p>思考如何通过 f(1)…f(n-1)<em>f</em>(1)…<em>f</em>(<em>n</em>−1) 求出 f(n)<em>f</em>(<em>n</em>) 的过程实际就是在思考状态转移方程怎么写。寻找转移方程的过程有点类似高中数学的抽象方程的解法，可以从数学角度递推，也可以找具体的例子总结规律。</p>
+<p>将问题规模减小的方式有很多种，一些典型的减小方式是动态规划分类的依据，例如线性，区间，树形等。</p>
 
       
 
@@ -377,7 +382,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 芹菜
+    		&copy; 2022 芹菜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -460,19 +465,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">3D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">恐怖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">解谜</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">恐怖</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,7 +489,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,14 +506,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">射击</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">计划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
