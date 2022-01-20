@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>《STL源码剖析》笔记 | 芹菜的布洛克</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识，通过学习可以提升很多。（计划12月看完此书，先看对象模型）">
+  <meta name="description" content="看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识，通过学习可以提升很多。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《STL源码剖析》笔记">
 <meta property="og:url" content="http://example.com/2021/11/02/STL%E6%BA%90%E7%A0%81%E5%88%A8%E6%9E%90/index.html">
 <meta property="og:site_name" content="芹菜的布洛克">
-<meta property="og:description" content="看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识，通过学习可以提升很多。（计划12月看完此书，先看对象模型）">
+<meta property="og:description" content="看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识，通过学习可以提升很多。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-16T17:15:14.841Z">
+<meta property="article:modified_time" content="2022-01-20T05:18:41.932Z">
 <meta property="article:author" content="芹菜">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -183,17 +183,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识，通过学习可以提升很多。（计划12月看完此书，先看对象模型）</p>
+        <p>看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识，通过学习可以提升很多。</p>
 <span id="more"></span>
 
 <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="Standard-Template-Library"><a href="#Standard-Template-Library" class="headerlink" title="Standard Template Library"></a>Standard Template Library</h3><h3 id="为什么要学习STL源码？"><a href="#为什么要学习STL源码？" class="headerlink" title="为什么要学习STL源码？"></a>为什么要学习STL源码？</h3><p>看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="STL：Standard-Template-Library"><a href="#STL：Standard-Template-Library" class="headerlink" title="STL：Standard Template Library"></a>STL：Standard Template Library</h3><h3 id="为什么要学习STL源码？"><a href="#为什么要学习STL源码？" class="headerlink" title="为什么要学习STL源码？"></a>为什么要学习STL源码？</h3><p>看大咖的源码是提升自己的方式之一，STL的源码包含了算法与数据结构，泛型，如何写出高效代码，如何落实抽象层次，内存配置与管理等知识</p>
 <h3 id="STL的三个学习境界"><a href="#STL的三个学习境界" class="headerlink" title="STL的三个学习境界"></a>STL的三个学习境界</h3><ol>
-<li>会用</li>
-<li>明理</li>
-<li>会拓展</li>
+<li><p>会用</p>
+</li>
+<li><p>明理</p>
+</li>
+<li><p>会拓展</p>
+</li>
 </ol>
-<h3 id="追踪一流作品并于其中吸取养分，远比自己关起门来写个三流作品，价值高很多"><a href="#追踪一流作品并于其中吸取养分，远比自己关起门来写个三流作品，价值高很多" class="headerlink" title="追踪一流作品并于其中吸取养分，远比自己关起门来写个三流作品，价值高很多"></a>追踪一流作品并于其中吸取养分，远比自己关起门来写个三流作品，价值高很多</h3><h2 id="STL概论与版本简介"><a href="#STL概论与版本简介" class="headerlink" title="STL概论与版本简介"></a>STL概论与版本简介</h2><h3 id="STL六大部件"><a href="#STL六大部件" class="headerlink" title="STL六大部件"></a>STL六大部件</h3><ul>
+<h2 id="STL基础"><a href="#STL基础" class="headerlink" title="STL基础"></a>STL基础</h2><h3 id="1-操作符重载"><a href="#1-操作符重载" class="headerlink" title="1. 操作符重载"></a>1. 操作符重载</h3><ul>
+<li>不能重载的操作符：不能重载的运算符有 .  和 .* 和 ?: 和 :: 和 sizeof</li>
+<li>必须是成员函数：= 赋值运算符，（）函数调用运算符，[ ]下标运算符，-&gt;通过指针访问类成员的运算符</li>
+</ul>
+<h3 id="2-Templates"><a href="#2-Templates" class="headerlink" title="2. Templates"></a>2. Templates</h3><ul>
+<li>class templates</li>
+<li>function templates</li>
+<li>member templates</li>
+<li>Specialization特化</li>
+</ul>
+<h2 id="STL概论与版本简介"><a href="#STL概论与版本简介" class="headerlink" title="STL概论与版本简介"></a>STL概论与版本简介</h2><h3 id="STL六大部件"><a href="#STL六大部件" class="headerlink" title="STL六大部件"></a>STL六大部件</h3><ul>
 <li>容器</li>
 <li>分配器</li>
 <li>算法</li>
@@ -201,7 +214,42 @@
 <li>适配器</li>
 <li>仿函式</li>
 </ul>
-<h3 id="泛型编程和面向对象编程的根本差异"><a href="#泛型编程和面向对象编程的根本差异" class="headerlink" title="泛型编程和面向对象编程的根本差异"></a>泛型编程和面向对象编程的根本差异</h3>
+<h3 id="泛型编程和面向对象编程的根本差异"><a href="#泛型编程和面向对象编程的根本差异" class="headerlink" title="泛型编程和面向对象编程的根本差异"></a>泛型编程和面向对象编程的根本差异</h3><p>OOP将datas和methods放在一起</p>
+<p>GP将datas和methods分开</p>
+<p>好处：</p>
+<ul>
+<li>Containers和Algorithms团队可以各自闭门造车，其间以Iterator沟通即可</li>
+<li>Algorithms通过Iterators确定操作范围，并通过Iterators取用Container元素</li>
+</ul>
+<h2 id="分配器-allocator"><a href="#分配器-allocator" class="headerlink" title="分配器 allocator"></a>分配器 allocator</h2><p>为container分配内存</p>
+<h3 id="SGI标准的空间配置器std-allocator"><a href="#SGI标准的空间配置器std-allocator" class="headerlink" title="SGI标准的空间配置器std::allocator"></a>SGI标准的空间配置器std::allocator</h3><p>效率不佳的配置器，仅对::operator new和::operator delete做了一层薄薄的包装</p>
+<p>坏处：每个元素都malloc一次，产生8字节的垃圾空间</p>
+<h3 id="SGI特殊的空间配置器std-alloc"><a href="#SGI特殊的空间配置器std-alloc" class="headerlink" title="SGI特殊的空间配置器std::alloc"></a>SGI特殊的空间配置器std::alloc</h3><h3 id="operator-new-和malloc"><a href="#operator-new-和malloc" class="headerlink" title="operator new()和malloc()"></a>operator new()和malloc()</h3><p>malloc()会根据系统调用api在栈上分配内存</p>
+<p>operator new()会调用malloc()</p>
+<h3 id="new的过程"><a href="#new的过程" class="headerlink" title="new的过程"></a>new的过程</h3><ol>
+<li>调用operator new()配置内存</li>
+<li>调用constuctor构造对象内容</li>
+</ol>
+<p>delelte的过程差不多</p>
+<h3 id="STL-allocator的做法"><a href="#STL-allocator的做法" class="headerlink" title="STL allocator的做法"></a>STL allocator的做法</h3><p>将这两个阶段操作区分开</p>
+<h3 id="对象的构造和销毁："><a href="#对象的构造和销毁：" class="headerlink" title="对象的构造和销毁："></a>对象的构造和销毁：</h3><h4 id="trivial-destructor"><a href="#trivial-destructor" class="headerlink" title="trivial destructor"></a>trivial destructor</h4><p>如果用户不定义析构函数，而是用系统自带的，则说明，析构函数基本没有什么用（但默认会被调用）我们称之为trivial destructor。反之，如果特定定义了析构函数，则说明需要在释放空间之前做一些事情，则这个析构函数称为non-trivial destructor。如果某个类中只有基本类型的话是没有必要调用析构函数的，delelte p的时候基本不会产生析构代码。destory()会根据是否trivial特化。</p>
+<h4 id="空间的配置与释放，std-alloc"><a href="#空间的配置与释放，std-alloc" class="headerlink" title="空间的配置与释放，std::alloc"></a>空间的配置与释放，std::alloc</h4><p>SGI对此的设计哲学如下：</p>
+<ul>
+<li>向system heap要求空间</li>
+<li>考虑多线程状态</li>
+<li>考虑内存不足时的应对措施</li>
+<li>考虑过多小区块可能造成的内存碎片(fragment)问题</li>
+</ul>
+<p>分为两级配置器</p>
+<h3 id="第一级配置器"><a href="#第一级配置器" class="headerlink" title="第一级配置器"></a>第一级配置器</h3><p>通过malloc，free，realloc实现</p>
+<h4 id="realloc"><a href="#realloc" class="headerlink" title="realloc()"></a>realloc()</h4><p>C 库函数 <strong>void *realloc(void *ptr, size_t size)</strong> 尝试重新调整之前调用 <strong>malloc</strong> 或 <strong>calloc</strong> 所分配的 <strong>ptr</strong> 所指向的内存块的大小。</p>
+<h4 id="内存不足条例"><a href="#内存不足条例" class="headerlink" title="内存不足条例"></a>内存不足条例</h4><h3 id="第二级配置器"><a href="#第二级配置器" class="headerlink" title="第二级配置器"></a>第二级配置器</h3><p>第二级配置器多了一些机制避免过多的overhead</p>
+<p>如果区块小于128bytes，以内存池管理：每次配置一大块内存，并维护对应的free-list</p>
+<h4 id="避免链表造成额外开销"><a href="#避免链表造成额外开销" class="headerlink" title="避免链表造成额外开销"></a>避免链表造成额外开销</h4><p>obj使用union</p>
+<p>结构体和共用体的区别在于：结构体的各个成员会占用不同的内存，互相之间没有影响；而共用体的所有成员占用同一段内存，修改一个成员会影响其余所有成员。</p>
+<h3 id="内存基本处理工具"><a href="#内存基本处理工具" class="headerlink" title="内存基本处理工具"></a>内存基本处理工具</h3><p>五个全局函数</p>
+<h2 id="iterators迭代器"><a href="#iterators迭代器" class="headerlink" title="iterators迭代器"></a>iterators迭代器</h2><p>泛型思想或STL思想的实际运用，将数据容器和算法结合起来</p>
+
       
 
       
@@ -333,7 +381,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Standard-Template-Library"><span class="toc-number">1.1.</span> <span class="toc-text">Standard Template Library</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0STL%E6%BA%90%E7%A0%81%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">为什么要学习STL源码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL%E7%9A%84%E4%B8%89%E4%B8%AA%E5%AD%A6%E4%B9%A0%E5%A2%83%E7%95%8C"><span class="toc-number">1.3.</span> <span class="toc-text">STL的三个学习境界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%BD%E8%B8%AA%E4%B8%80%E6%B5%81%E4%BD%9C%E5%93%81%E5%B9%B6%E4%BA%8E%E5%85%B6%E4%B8%AD%E5%90%B8%E5%8F%96%E5%85%BB%E5%88%86%EF%BC%8C%E8%BF%9C%E6%AF%94%E8%87%AA%E5%B7%B1%E5%85%B3%E8%B5%B7%E9%97%A8%E6%9D%A5%E5%86%99%E4%B8%AA%E4%B8%89%E6%B5%81%E4%BD%9C%E5%93%81%EF%BC%8C%E4%BB%B7%E5%80%BC%E9%AB%98%E5%BE%88%E5%A4%9A"><span class="toc-number">1.4.</span> <span class="toc-text">追踪一流作品并于其中吸取养分，远比自己关起门来写个三流作品，价值高很多</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STL%E6%A6%82%E8%AE%BA%E4%B8%8E%E7%89%88%E6%9C%AC%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">STL概论与版本简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STL%E5%85%AD%E5%A4%A7%E9%83%A8%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">STL六大部件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A0%B9%E6%9C%AC%E5%B7%AE%E5%BC%82"><span class="toc-number">2.2.</span> <span class="toc-text">泛型编程和面向对象编程的根本差异</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STL%EF%BC%9AStandard-Template-Library"><span class="toc-number">1.1.</span> <span class="toc-text">STL：Standard Template Library</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0STL%E6%BA%90%E7%A0%81%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">为什么要学习STL源码？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL%E7%9A%84%E4%B8%89%E4%B8%AA%E5%AD%A6%E4%B9%A0%E5%A2%83%E7%95%8C"><span class="toc-number">1.3.</span> <span class="toc-text">STL的三个学习境界</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STL%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">STL基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%93%8D%E4%BD%9C%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text">1. 操作符重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Templates"><span class="toc-number">2.2.</span> <span class="toc-text">2. Templates</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STL%E6%A6%82%E8%AE%BA%E4%B8%8E%E7%89%88%E6%9C%AC%E7%AE%80%E4%BB%8B"><span class="toc-number">3.</span> <span class="toc-text">STL概论与版本简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STL%E5%85%AD%E5%A4%A7%E9%83%A8%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">STL六大部件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A0%B9%E6%9C%AC%E5%B7%AE%E5%BC%82"><span class="toc-number">3.2.</span> <span class="toc-text">泛型编程和面向对象编程的根本差异</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%85%8D%E5%99%A8-allocator"><span class="toc-number">4.</span> <span class="toc-text">分配器 allocator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SGI%E6%A0%87%E5%87%86%E7%9A%84%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A8std-allocator"><span class="toc-number">4.1.</span> <span class="toc-text">SGI标准的空间配置器std::allocator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SGI%E7%89%B9%E6%AE%8A%E7%9A%84%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A8std-alloc"><span class="toc-number">4.2.</span> <span class="toc-text">SGI特殊的空间配置器std::alloc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#operator-new-%E5%92%8Cmalloc"><span class="toc-number">4.3.</span> <span class="toc-text">operator new()和malloc()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">4.4.</span> <span class="toc-text">new的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL-allocator%E7%9A%84%E5%81%9A%E6%B3%95"><span class="toc-number">4.5.</span> <span class="toc-text">STL allocator的做法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E9%94%80%E6%AF%81%EF%BC%9A"><span class="toc-number">4.6.</span> <span class="toc-text">对象的构造和销毁：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#trivial-destructor"><span class="toc-number">4.6.1.</span> <span class="toc-text">trivial destructor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%87%8A%E6%94%BE%EF%BC%8Cstd-alloc"><span class="toc-number">4.6.2.</span> <span class="toc-text">空间的配置与释放，std::alloc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%BA%A7%E9%85%8D%E7%BD%AE%E5%99%A8"><span class="toc-number">4.7.</span> <span class="toc-text">第一级配置器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#realloc"><span class="toc-number">4.7.1.</span> <span class="toc-text">realloc()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E4%B8%8D%E8%B6%B3%E6%9D%A1%E4%BE%8B"><span class="toc-number">4.7.2.</span> <span class="toc-text">内存不足条例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%BA%A7%E9%85%8D%E7%BD%AE%E5%99%A8"><span class="toc-number">4.8.</span> <span class="toc-text">第二级配置器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E9%93%BE%E8%A1%A8%E9%80%A0%E6%88%90%E9%A2%9D%E5%A4%96%E5%BC%80%E9%94%80"><span class="toc-number">4.8.1.</span> <span class="toc-text">避免链表造成额外开销</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%9F%BA%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">4.9.</span> <span class="toc-text">内存基本处理工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iterators%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">iterators迭代器</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -441,11 +489,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Unity</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color1">Unity</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,19 +501,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">解谜</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">恐怖</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数字孪生</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,7 +513,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">工业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数字孪生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">解谜</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,6 +534,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">计算机图形学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
