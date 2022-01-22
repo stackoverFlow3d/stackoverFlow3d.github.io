@@ -6,28 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>《深度解析c++对象模型》读书笔记 | 芹菜的布洛克</title>
+  <title>C++11新特性提纲 | 芹菜的布洛克</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="很经典的书了属于是。非常喜欢侯捷的翻译风格，中英混合，看的非常爽。（计划11月看完本书）">
+  <meta name="description" content="C++11新特性提纲https:&#x2F;&#x2F;changkun.de&#x2F;modern-cpp&#x2F;zh-cn&#x2F;00-preface&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《深度解析c++对象模型》读书笔记">
-<meta property="og:url" content="http://example.com/2021/11/09/%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:title" content="C++11新特性提纲">
+<meta property="og:url" content="http://example.com/2022/01/12/C++%E6%96%B0%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="芹菜的布洛克">
-<meta property="og:description" content="很经典的书了属于是。非常喜欢侯捷的翻译风格，中英混合，看的非常爽。（计划11月看完本书）">
+<meta property="og:description" content="C++11新特性提纲https:&#x2F;&#x2F;changkun.de&#x2F;modern-cpp&#x2F;zh-cn&#x2F;00-preface&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/92071/201309/27224536-7836aef8cc044459be68fd394baf8883.png">
-<meta property="og:image" content="https://images0.cnblogs.com/blog/92071/201309/27224539-00ebfb781155492db39e6fa29091645c.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/11/h6HSO3YArND2ZCi.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/11/GFLaPVrhK1xX9UJ.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/11/wkZvVUo4NFmJLB6.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/11/qlv9OrBFnW7J4pT.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/11/3lusenHZBj9cgfA.png">
-<meta property="article:published_time" content="2021-11-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-11T09:03:03.305Z">
+<meta property="article:published_time" content="2022-01-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-22T14:53:12.126Z">
 <meta property="article:author" content="芹菜">
-<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images0.cnblogs.com/blog/92071/201309/27224536-7836aef8cc044459be68fd394baf8883.png">
   
     <link rel="alternative" href="/atom.xml" title="芹菜的布洛克" type="application/atom+xml">
   
@@ -171,192 +163,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-对象模型" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C++新特性" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      《深度解析c++对象模型》读书笔记
+      C++11新特性提纲
     </h1>
   
 
         
-        <a href="/2021/11/09/%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2021-11-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-09</time>
+        <a href="/2022/01/12/C++%E6%96%B0%E7%89%B9%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2022-01-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>很经典的书了属于是。非常喜欢侯捷的翻译风格，中英混合，看的非常爽。（计划11月看完本书）</p>
+        <hr>
+<h2 id="C-11新特性提纲"><a href="#C-11新特性提纲" class="headerlink" title="C++11新特性提纲"></a>C++11新特性提纲</h2><p><a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/00-preface/">https://changkun.de/modern-cpp/zh-cn/00-preface/</a></p>
 <span id="more"></span>
 
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="什么是C-对象模型"><a href="#什么是C-对象模型" class="headerlink" title="什么是C++对象模型"></a>什么是C++对象模型</h3><p>有两个概念可以解释C++对象模型</p>
-<ol>
-<li>语言中直接支持面向对象程序设计的部分</li>
-<li>对于各种支持的底层机制实现</li>
+<h4 id="语言可用性："><a href="#语言可用性：" class="headerlink" title="语言可用性："></a>语言可用性：</h4><ol>
+<li><code>auto</code> 类型推导</li>
+<li>范围 <code>for</code> 迭代</li>
+<li>初始化列表</li>
+<li>变参模板</li>
 </ol>
-<h2 id="关于对象"><a href="#关于对象" class="headerlink" title="关于对象"></a>关于对象</h2><h3 id="加上封装之后的布局成本"><a href="#加上封装之后的布局成本" class="headerlink" title="加上封装之后的布局成本"></a>加上封装之后的布局成本</h3><p>布局：object在内存中的数据分布情况</p>
-<p>c++在布局以及存取时间上主要的额外负担是由virtual引起的， 包括：</p>
-<ul>
-<li>virtual function机制</li>
-<li>virtual base class</li>
-</ul>
-<p>此外还有一些多重继承下的额外负担，发生在“一个derived class和其第二或后继之base class的转换“之间。然而，一般而言，没有什么天生的理由说C++程序一定比其C兄弟庞大或迟缓。</p>
-<h3 id="1-1-C-对象模式"><a href="#1-1-C-对象模式" class="headerlink" title="1.1 C++对象模式"></a>1.1 C++对象模式</h3><p>class data members：</p>
-<ul>
-<li>static</li>
-<li>nonstatic</li>
-</ul>
-<p>class member functions：</p>
-<ul>
-<li>static</li>
-<li>nonstatic</li>
-<li>virtual</li>
-</ul>
-<h4 id="简单对象模型（a-simple-object-model）"><a href="#简单对象模型（a-simple-object-model）" class="headerlink" title="简单对象模型（a simple object model）"></a>简单对象模型（a simple object model）</h4><p><img src="https://images0.cnblogs.com/blog/92071/201309/27224536-7836aef8cc044459be68fd394baf8883.png" alt="简单对象模型"></p>
-<h4 id="表格驱动对象模型（a-table-driven-object-model）"><a href="#表格驱动对象模型（a-table-driven-object-model）" class="headerlink" title="表格驱动对象模型（a table-driven object model）"></a>表格驱动对象模型（a table-driven object model）</h4><p><img src="https://images0.cnblogs.com/blog/92071/201309/27224539-00ebfb781155492db39e6fa29091645c.png" alt="表格驱动"></p>
-<p>虽然这个模型没有实际用于c++编译器，但是member function table这个观念却成为支持virtual functions的一个有效方案。</p>
-<h4 id="c-对象模型"><a href="#c-对象模型" class="headerlink" title="c++对象模型."></a>c++对象模型.</h4><img src="https://i.loli.net/2021/11/11/h6HSO3YArND2ZCi.png" alt="image.png" style="zoom:60%;" />
-
-<p>从简单模型派生而来，并对内存空间和存取时间做了优化。</p>
-<p>virtual function以两个步骤支持之：</p>
-<ol>
-<li>每一个class产出一堆指向virtual function的指针，放在表格之中。这个表格被称为virtual table。</li>
-<li>每一个class object被安插一个指针（vptr），指向相关的virtual table。每一个class所关联的type_info boject（用以支持runtime type indentification，RTTI）也经常由virtual table被指出来，通常放在表格的第一个slot。</li>
+<h4 id="语言运行期的强化："><a href="#语言运行期的强化：" class="headerlink" title="语言运行期的强化："></a>语言运行期的强化：</h4><ol>
+<li>Lambda 表达式</li>
+<li>函数对象容器 std::function</li>
+<li>右值引用</li>
 </ol>
-<p>这个模型的主要优点在于它的空间和存取时间的效率</p>
-<p>主要缺点是所用到的class objects的nonstatic data member有所修改，那些应用程序的代码就得重新编译。关于这个问题，前面的双表格模型可以提供较大弹性，但它因此付出了空间和执行效率两方面的代价。</p>
-<h4 id="加上继承（adding-inheritance）"><a href="#加上继承（adding-inheritance）" class="headerlink" title="加上继承（adding inheritance）"></a>加上继承（adding inheritance）</h4><p>c++支持单一继承，多重继承，虚拟继承（virtual，也就是共享的意思）</p>
-<p>在虚拟继承的情况下，base class不论在继承链中派生（derived）几次，永远只会存在一个实例（称为subobject）。</p>
-<p>一个derived class如何在本质上模塑其base class的实例？</p>
-<p><strong>1.  简单对象模型</strong></p>
-<p>derived class object内可以存在一个solt，含有base class subobject的地址。</p>
-<p>缺点：空间和存取时间上的额外负担</p>
-<p>优点：class object的大小不会因其base class的改变而受到影响。</p>
-<p><strong>2. base table模型</strong></p>
-<p>类似虚函数表，每一个class object内含一个bptr，它会被初始化，指向其base class table。</p>
-<p>缺点：空间和存取时间上的额外负担</p>
-<p>优点：</p>
-<ul>
-<li>每一个class object中对于继承都有一致的表现方式：每一个class object都应该在一个固定位置放一个base table的指针，与base table大小和个数无关。</li>
-<li>无需改变class object本身，就可以放大、缩小，或更改base class table。</li>
-</ul>
-<img src="https://i.loli.net/2021/11/11/GFLaPVrhK1xX9UJ.png" alt="image.png" style="zoom:60%;" />
-
-<p>以上两种模型，“间接性”的级数会随着继承的深度而增加。这必须付出额外存放指针空间的代价。</p>
-<h4 id="对象模型如何影响程序"><a href="#对象模型如何影响程序" class="headerlink" title="对象模型如何影响程序"></a>对象模型如何影响程序</h4><p>不同的对象模型，会导致”现有的程序代码必须修改“和”必须加入新的程序代码“两个结果。</p>
-<p>转化的过程在下一章讲解。</p>
-<h3 id="1-2-关键词所带来的差异"><a href="#1-2-关键词所带来的差异" class="headerlink" title="1.2 关键词所带来的差异"></a>1.2 关键词所带来的差异</h3><p>c++复杂的语法和维护与C的兼容性有关。</p>
-<h4 id="什么情况下一个人应该以struct取代class？"><a href="#什么情况下一个人应该以struct取代class？" class="headerlink" title="什么情况下一个人应该以struct取代class？"></a>什么情况下一个人应该以struct取代class？</h4><p>哲学问题</p>
-<h4 id="策略性正确的c"><a href="#策略性正确的c" class="headerlink" title="策略性正确的c++"></a>策略性正确的c++</h4><ul>
-<li>c++中凡处于同一个access section的数据，必定保证以其声明顺序出现在内存中。</li>
-<li>多个access section的数据的顺序就不一定了。</li>
-</ul>
-<p>一个 C 中的使用技巧：把单一元素数组放在一个 struct 的尾端，则每个 struct 对象都可以用一个可变大小的数组 </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Struct mumble</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">char</span> pc[<span class="number">1</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取一个字符串，为struct 本身与该字符串配置足够的内存</span></span><br><span class="line"></span><br><span class="line">Struct mumble * pmumbl = (struct mumble *)  <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>( struct mumble) + <span class="built_in">strlen</span>(<span class="built_in">string</span>) + <span class="number">1</span> );</span><br><span class="line"></span><br><span class="line">Strcpy(pmumble-&gt;pc,<span class="built_in">string</span>);</span><br></pre></td></tr></table></figure>
-<p>但是在C++ 中，这种技巧有可能顺利实现，有可能不能实现</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class stumble</span><br><span class="line">&#123;</span><br><span class="line">    Public:</span><br><span class="line">      <span class="comment">//….</span></span><br><span class="line">    Protected :</span><br><span class="line">    <span class="comment">//….</span></span><br><span class="line">    Private:</span><br><span class="line">               <span class="keyword">char</span>  pc[<span class="number">1</span>];</span><br><span class="line">&#125;;  </span><br></pre></td></tr></table></figure>
-<p>​    此时，若 protected data member 位于 private data member 之前时，可以实现该技巧；否则，将无法实现。</p>
-<h4 id="如何在c-中正确使用strut？"><a href="#如何在c-中正确使用strut？" class="headerlink" title="如何在c++中正确使用strut？"></a>如何在c++中正确使用strut？</h4><p>程序员迫切需要C++ class的某部分数据拥有C声明的模样，此时将这一部分抽出来成为一个独立的struct声明，将struct和class<strong>组合起来，而非继承</strong>，才是把C和C++结合在一起的唯一可行的方法。struct声明可以将数据封装，并保证拥有与c兼容的空间布局。</p>
-<h3 id="1-3-对象的差异"><a href="#1-3-对象的差异" class="headerlink" title="1.3 对象的差异"></a>1.3 对象的差异</h3><p><strong>1. 程序模型 (procedural model)</strong><br>就像C一样，C++当然也支持它，字符串的处理就是一个例子，可以使用字符数组以及str*函数集：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> boy[] = <span class="string">&quot;Danny&quot;</span>;</span><br><span class="line"><span class="keyword">char</span> *p_son;</span><br><span class="line">...</span><br><span class="line">p_son = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(boy) + <span class="number">1</span>];</span><br><span class="line"><span class="built_in">strcpy</span>(p_son, boy);</span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">strcmp</span>(p_son, boy))</span><br><span class="line"><span class="built_in">take_to_disneyland</span>(boy);</span><br></pre></td></tr></table></figure>
-
-<p><strong>2. 抽象数据类型模型 (abstract data type model, ADT)</strong><br>该模型所谓的”抽象”是和一组表达式(public接口)一起提供，而其运算定义不是显式的，例如下面的String class:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String girl = <span class="string">&quot;Anna&quot;</span>;</span><br><span class="line">String daughter;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// String::operator=();</span></span><br><span class="line">daughter = girl;</span><br><span class="line">...</span><br><span class="line"><span class="comment">// String::operator==();</span></span><br><span class="line"><span class="keyword">if</span> (girl == daughter)</span><br><span class="line"><span class="built_in">take_to_disneyland</span>(girl);</span><br></pre></td></tr></table></figure>
-
-<p><strong>3. 面向对象模型 (Object-oriented model)</strong></p>
-<p>在此模型中有一些彼此相关的模型，通过一个抽象的base class(用以提供共同接口)被封装起来。Library_materials class就是一个例子，真正的subtypes例如Book、Video等都可以从那里派生而来：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">check_in</span><span class="params">(Library_materials *pmat)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (pmat-&gt;<span class="built_in">late</span>())</span><br><span class="line">    pmat-&gt;<span class="built_in">fine</span>();</span><br><span class="line">pmat-&gt;<span class="built_in">check_in</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Lender *plend = pmat-&gt;<span class="built_in">reserved</span>())</span><br><span class="line">    pmat-&gt;<span class="built_in">notify</span>(plend);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>纯粹以一种paradigm写程序，有助于整体行为的良好巩固，然而如果混合了不同的paradigms，就可能会带来让人惊吓的后果，特别是在没有谨慎处理的情况下。最常见的疏忽发生在以一个base class的具体实体如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Library_materials thing1;</span><br></pre></td></tr></table></figure>
-
-<p>来完成某种多态(polymorphism)局面时:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span> :</span> Public Library_materials &#123;...&#125;;</span><br><span class="line">Book book;</span><br><span class="line"></span><br><span class="line"><span class="comment">// thing1不是一个Book，book被裁剪(sliced)，不过thing1仍保有一个Library_materials.</span></span><br><span class="line">thing1 = book;</span><br><span class="line"><span class="comment">// 调用Library_materials::check_in()</span></span><br><span class="line">thing1.<span class="built_in">check_in</span>();</span><br></pre></td></tr></table></figure>
-
-<p> 而不是通过base class的pointer或reference来完成多态局面：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Library_materials &amp;thing2 = book;</span><br><span class="line">thing2.<span class="built_in">check_in</span>();</span><br></pre></td></tr></table></figure>
-
-<p>虽然可以直接或间接处理继承体系中的一个base class object，但<strong>只有通过pointer或者reference的间接处理，才支持OO程序设计所需的多态性质</strong>。上个例子中的thing2的定义和运用，是OO paradigm中一个良好的例证。thing1的定义和运用则逸出了OO的习惯，它反映的是一个ADT paradigm的良好行为。thing1的行为是好是坏，视程序员的意图而定。<br>虽然<strong>对于object的多态操作要求此object必须可以经由一个pointer或reference来存取，然而C++中的pointer或reference的处理却不是多态的必要结果</strong>。如下所示：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没有多态，因为操作对象不是class object</span></span><br><span class="line"><span class="keyword">int</span> *pi;</span><br><span class="line"><span class="comment">// 没有语言所支持的多态</span></span><br><span class="line"><span class="keyword">void</span> *pvi;</span><br><span class="line"><span class="comment">// class x视为一个base class(可以有多态的效果)</span></span><br><span class="line">x *px;</span><br></pre></td></tr></table></figure>
-
-<p>在C++，多态只存在与一个个的public class体系中，例如px可能指向某个类型的一个object，或者指向以public派生而来的一个子类型。Nonpublic的派生行为以及类型为void*的指针可以说是多态的，但它们并没有被语言明白地支持，也就是说它们必须由程序员通过显式的转换操作来管理。</p>
-<h4 id="c-支持多态的方法"><a href="#c-支持多态的方法" class="headerlink" title="c++支持多态的方法"></a>c++支持多态的方法</h4><ol>
-<li><p><strong>经由一组隐式的转换操作</strong><br>例如把一个derived class 指针转化为一个指向其public base type的指针：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shape *ps = <span class="keyword">new</span> <span class="built_in">circle</span>();</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>经由virtual function机制</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps-&gt;<span class="built_in">rotate</span>();</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>经由 dynamic_cast和typied运算符</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (circle *pc = <span class="keyword">dynamic_cast</span>&lt;circle *&gt;(ps))</span><br></pre></td></tr></table></figure></li>
+<h4 id="容器："><a href="#容器：" class="headerlink" title="容器："></a>容器：</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/04-containers/#std-array"><code>std::array</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/04-containers/#std-forward-list"><code>std::forward_list</code></a></li>
+<li>std::tuple</li>
 </ol>
-<p>多态的主要用途是经由一个共同的接口来影响类型的封装，这个接口通常被定义在一个抽象的base class 中。例如Library_materials class 就为Book、Vedio等subtype定义了一个接口。这个 共享接口是以virtual function机制引发的，它可以在执行期根据object的真正类型解析出到底是哪一个函数实体被调用，经由这样的操作：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Library_material-&gt;<span class="built_in">check_out</span>();</span><br></pre></td></tr></table></figure>
+<h4 id="智能制造与内存管理"><a href="#智能制造与内存管理" class="headerlink" title="智能制造与内存管理"></a>智能制造与内存管理</h4><h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><h4 id="并行与并发"><a href="#并行与并发" class="headerlink" title="并行与并发"></a>并行与并发</h4><hr>
+<p><strong>decltype</strong>实际上有点像auto的反函数，auto能够让你声明一个变量。而decltype则能够从一个变量或表达式中得到类型</p>
+<p><strong>nullptr</strong>是为了解决原来C++中NULL的二义性问题而引进的一种新的类型</p>
+<p><strong>简化的for循环</strong>，能够用于遍历数组、容器、string以及由begin和end函数定义的序列（即有Iterator），for (auto p : m)</p>
+<p><strong>lambda表达式</strong>，能够用于创建并定义匿名的函数对象，以简化编程工作。Lambda的语法例如以下： [函数对象參数]（操作符重载函数參数）-&gt;返回值类型{函数体}</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; iv&#123;<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> a = <span class="number">2</span>, b = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line">for_each(iv.<span class="built_in">begin</span>(), iv.<span class="built_in">end</span>(), [b](<span class="keyword">int</span> &amp;x)&#123;cout&lt;&lt;(x + b)&lt;&lt;endl;&#125;); <span class="comment">// (1)</span></span><br><span class="line"> </span><br><span class="line">for_each(iv.<span class="built_in">begin</span>(), iv.<span class="built_in">end</span>(), [=](<span class="keyword">int</span> &amp;x)&#123;x *= (a + b);&#125;);     <span class="comment">// (2)</span></span><br><span class="line"> </span><br><span class="line">for_each(iv.<span class="built_in">begin</span>(), iv.<span class="built_in">end</span>(), [=](<span class="keyword">int</span> &amp;x)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> x * (a + b);&#125;);<span class="comment">// (3)</span></span><br></pre></td></tr></table></figure>
 
-<p>代码可以避免由于”借助某一特定library的materials”而导致变动无偿，这不只使得”当类型有所增加、修改、删减时，程序代码不需改变”，而且也使一个新的Library_materials subtype的供应者不需要重新编写出”对继承体系中所有类型都共通”的行为和操作.<br>考虑以下这样的代码：</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="built_in">rotate</span>(X datum, <span class="keyword">const</span> X *pointer, <span class="keyword">const</span> X &amp;reference) &#123;</span><br><span class="line"><span class="comment">// 在执行期之前，无法决定到底调用哪一个rotate()实体</span></span><br><span class="line">(*pointer).<span class="built_in">rotate</span>();</span><br><span class="line">reference.<span class="built_in">rotate</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面这个操作总是调用X::rotate()</span></span><br><span class="line">datum.<span class="built_in">rotate</span>();</span><br><span class="line">&#125;</span><br><span class="line">main() &#123;</span><br><span class="line">Z z;    <span class="comment">// Z是X的一个子类型</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">rotate</span>(z, &amp;z, z);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>经由pointer和reference完成的两个”函数调用指针”会被动态完成。此例中它们都调用Z::rotate()，经由datum完成的”函数调用操作”则可能(可能不)经由virtual机制。不过，它总是调用X::rotate()。(这就是所谓的”编译素养”问题：不管经由datum所调用的virtual function采不采用virtual机制，从语意来说，结果都是一样的)</p>
-<p><strong>需要多少内存才能表现一个class object</strong>?一般而言要有：</p>
 <ul>
-<li>其nonstatic data members的总和大小</li>
-<li>加上任何由于alignment(将数值调整到某整数的倍数)的需求而填补(padding)上去的空间(可能存在于members之间，也可能存在于集合体边界)</li>
-<li>加上为了支持virtual而由内部产生的任何额外负担(overhead)</li>
+<li>[]内的參数指的是Lambda表达式能够取得的全局变量。(1)函数中的b就是指函数能够得到在Lambda表达式外的全局变量，假设在[]中传入=的话，即是能够取得全部的外部变量，如（2）和（3）Lambda表达式</li>
+<li>()内的參数是每次调用函数时传入的參数。</li>
+<li>-&gt;后加上的是Lambda表达式返回值的类型。如（3）中返回了一个int类型的变量</li>
 </ul>
-<p>一个指针不管它指向哪一种数据类型，指针本身所需的内存大小是固定的，例如：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZooAnimal</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">ZooAnimal</span>();</span><br><span class="line"><span class="keyword">virtual</span> ~<span class="built_in">ZooAnimal</span>();</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="keyword">int</span> loc;</span><br><span class="line">string name;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">ZooAnimal <span class="title">za</span><span class="params">(<span class="string">&quot;Zoey&quot;</span>)</span></span>;</span><br><span class="line">ZooAnimal *pza = &amp;za;</span><br></pre></td></tr></table></figure>
+<p><strong>变长参数的模板，</strong>C++11中引入了变长參数模板，所以发明了新的数据类型：tuple，tuple是一个N元组。能够传入1个， 2个甚至多个不同类型的数据</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> t1 = <span class="built_in">make_tuple</span>(<span class="number">1</span>, <span class="number">2.0</span>, <span class="string">&quot;C++ 11&quot;</span>);</span><br><span class="line"><span class="keyword">auto</span> t2 = <span class="built_in">make_tuple</span>(<span class="number">1</span>, <span class="number">2.0</span>, <span class="string">&quot;C++ 11&quot;</span>, &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>其中的class object za和指针pza的可能布局为如图1.4所示：</p>
-<img src="https://i.loli.net/2021/11/11/wkZvVUo4NFmJLB6.png" alt="1.4.png" style="zoom:80%;" />
+<p>避免了从前的pair中嵌套pair的丑陋做法。使得代码更加整洁</p>
+<p><strong>更加优雅的初始化方法，</strong>在引入C++11之前。仅仅有数组能使用初始化列表，其它容器想要使用初始化列表，仅仅能用下面方法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; <span class="built_in">v</span>(arr, arr + <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 
-<h4 id="指针的类型"><a href="#指针的类型" class="headerlink" title="指针的类型"></a>指针的类型</h4><p>一个指向ZooAnimal的指针式如何与一个指向整数的指针或者一个指向template Array的指针有所不同呢?</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZooAimal *px;</span><br><span class="line"><span class="keyword">int</span> *pi;</span><br><span class="line">Array&lt;string&gt; *pta;</span><br></pre></td></tr></table></figure>
+<p>在C++11中，我们能够使用下面语法来进行替换：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">3</span>]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; iv&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">map&lt;<span class="keyword">int</span>, string&gt;&#123;&#123;<span class="number">1</span>, <span class="string">&quot;a&quot;</span>&#125;, &#123;<span class="number">2</span>, <span class="string">&quot;b&quot;</span>&#125;&#125;;</span><br><span class="line">string str&#123;<span class="string">&quot;Hello World&quot;</span>&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>以内存需求的观点来说，没有不同。它们三个都需要有足够的内存来存放一个机器地址。 “指向不同类型的指针”间的差异，既不在于指针表示法不同，也不在于其内容(代表一个地址)不同，而是在于其所<strong>寻址出来的object类型不同</strong>。也就是说，”指针类型”会指示编译器如何解释某个特定地址中的内存内容以及其大小。</p>
-<ul>
-<li>一个指向地址1000的整数指针，在32位机器上，将涵盖地址空间1000~1003</li>
-<li>如果string是传统的8-bytes(包括一个4-bytes的字符指针和一个用来表示字符串长度的整数)，那么一个ZooAnimal指针将横跨地址空间1000~1015(4+8+4)</li>
-</ul>
-<p>一个类型为void *的指针只能含有一个地址，而不能通过它操作所指的objec。<br>所以， 转型(cast)其实是一种编译器命令，大部分情况下它<strong>并不改变一个指针所含的真正的地址</strong>，它 只影响”被指出的内存的大小和其内存”的<strong>解释方式</strong>。</p>
-<h4 id="加上多态之后-Add-Polymorphism"><a href="#加上多态之后-Add-Polymorphism" class="headerlink" title="加上多态之后 (Add Polymorphism)"></a>加上多态之后 (Add Polymorphism)</h4><p>现在定义一个Bear，作为一种ZooAnimal，当然，经由”public继承”可以完成。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bear</span> :</span> <span class="keyword">public</span> ZooAnimal &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">Bear</span>();</span><br><span class="line">~<span class="built_in">Bear</span>();</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">dance</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Dances</span> &#123;</span>...&#125;</span><br><span class="line">Dances dances_known;</span><br><span class="line"><span class="keyword">int</span> cell_block;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">Bear <span class="title">b</span><span class="params">(<span class="string">&quot;Yogi&quot;</span>)</span></span>;</span><br><span class="line">Bear *pb = &amp;b;</span><br><span class="line">Bear &amp;rb = *pb;</span><br></pre></td></tr></table></figure>
-
-<p>b,pb,rb会有怎样的内存需求呢？不管是pointer或reference都只需要一个word的空间(在32位机器上是4-bytes）。Bear object需要24 bytes，也就是ZooAnimal的16 bytes加上Bear所带来的8 bytes。    </p>
-<img src="https://i.loli.net/2021/11/11/qlv9OrBFnW7J4pT.png" alt="image.png" style="zoom: 67%;" />
-
-<p>假设Bear object位于地址1000处，一个Bear指针和一个ZooAnimal指针有什么不同？</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bear b;</span><br><span class="line">ZooAnimal *pz = &amp;b;</span><br><span class="line">Bear *pb = &amp;b;</span><br></pre></td></tr></table></figure>
-
-<p>它们每个都指向Bear object的第一个byte，其间的差别是pb所涵盖的地址包含整个Bear object，而pz所涵盖的地址只包含Bear object中的ZooAnimal subobject。<br>除了ZooAnimal subobject中出现的members，不能够使用pz来直接处理Bear的任何members。唯一的例外是通过virtual机制：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不合法：cell_block不是ZooAnimal的一个member,虽然pz当前指向一个Bear object</span></span><br><span class="line">pz-&gt;cell_block;</span><br><span class="line"><span class="comment">// OK：经过一个显示的downcast操作就没问题</span></span><br><span class="line">((Bear *)pz)-&gt;cell_block;</span><br><span class="line"><span class="comment">// 下面这样更好，但它是一个run-time operation(成本较高)</span></span><br><span class="line"><span class="keyword">if</span> (Bear *pb2 = <span class="keyword">dynamic_cast</span>&lt;Bear *&gt;(pz))</span><br><span class="line">pb2-&gt;cell_block;</span><br><span class="line"><span class="comment">// OK：因为cell_block是Bear的一个member</span></span><br><span class="line">pb-&gt;cell_block;</span><br></pre></td></tr></table></figure>
-
-<p>当我们写</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">pz</span>-&gt;</span>rotate();</span><br></pre></td></tr></table></figure>
-
-<p>时，pz的类型将在编译时决定以下两点：</p>
-<ul>
-<li><p>固定的可用接口，pz只能够调用ZooAnimal的public接口</p>
-</li>
-<li><p>该接口的access level(例如rotate()是ZooAnimal的一个public member)</p>
-</li>
-</ul>
-<p>在每一个执行点，pz所指的object类型可以决定rotate()所调用的实体。 类型信息的封装并不是维护在pz中，而是维护在link中，此link存在于”object的vptr”和”vptr所指向virtual table”之间<br>看下面这种情况：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bear b;</span><br><span class="line">ZooAnimal za = b;        <span class="comment">// 这会引起切割(sliced)</span></span><br><span class="line"><span class="comment">// 调用ZooAnimal::rotate()</span></span><br><span class="line">za.<span class="built_in">rotate</span>();</span><br></pre></td></tr></table></figure>
-
-<p>为什么rotate()所调用的是ZooAnimal实体而不是Bear实体？此外，如果初始化函数(应用于上述assignment操作发生时)将一个object内容完全拷贝到另一个object中去，为什么za的vptr不指向Bear的virtual table?<br>第二个问题的答案是，编译器在初始化以及赋值(assignment)操作(将一个class object指定给另一个class object)之间做出了选择。编译器必须确保如果某个object含有一个或一个以上的vptrs，那些vptrs的内容不会被base class object初始化或改变。<br>至于 第一个问题的答案是：za并不是(而且也绝不会是)一个Bear，它是(并且只能是)一个ZooAnimal.多态所造成的”一个以上的类型”的潜在力量，并不能够实际发挥在”直接存取objects”这件事情上。有一个似是而非的观念：OO程序并不支持对object的直接处理。如下所示：</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">ZooAnimal za;</span><br><span class="line">ZooAnimal *pza;</span><br><span class="line"><span class="keyword">Bear </span><span class="keyword">b;</span></span><br><span class="line"><span class="keyword"></span>Panda *pp = new Panda;</span><br><span class="line">pza = &amp;<span class="keyword">b;</span></span><br><span class="line"><span class="keyword"></span>&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可能的内存布局如下：</p>
-<img src="https://i.loli.net/2021/11/11/3lusenHZBj9cgfA.png" alt="image.png" style="zoom:50%;" />
-
-<p>将za或b的地址,或pp的内容(也是个地址)赋给pza，显然不是问题。 一个pointer或者一个reference之所以支持多态，是因为它们并不引发内存中任何”与类型有关的内存委托操作(type-dependent commitment)”，会受到改变的知识它们所指向的内存的”大小和内容解释方式”而已。<br>然而，如果改变object za的大小，则会违反其定义受契约保护的”资源需求量”。如果把整个Bear object赋值给za，则会溢出它所配置得到的内存，执行结果则出错。</p>
-<p>当一个base class object被直接初始化为(或者赋值为)一个derived class object时， derived object就会被切割(sliced)，以塞入较小的base type内存中。derived type将没有留下任何蛛丝马迹。多态于是不再呈现，而一个严格的编译器可以在编译时期解析一个”通过该object而触发的virtual function调用操作”， 因而回避virtual机制，如果virtual function被定义为inline，则更有效率上的大收获。</p>
-<p>总而言之，多态是一种威力强大的设计机制，允许继承一个抽象的public接口之后，封装相关的类型。Library_materials体系就是一例。需要付出的代价就是额外的间接性——不论是在”内存的获得”或者是在”类型的判断”上，C++通过class的pointers和references来支持多态，这种程序设计风格就称为”面向对象”(Object-oriented model( OO)).</p>
-<p>C++也支持具体的ADT程序风格，如今被称为object-based(OB).例如string class，一种非多态的数据类型，string class 可以展示封装的非多态形式：它提供一个public接口和一个private实作品，包括数据和算法，但是不支持类型的扩充。一个 OB设计可能比一个对等的OO设计速度更快而且空间更紧凑，速度快是因为所有的函数引发操作都是在编译时期解析完成，对象构建起来时不需要设置virtual机制；空间紧凑则是因为每一个class object不需要负担传统上为了支持virtual机制而需要的额外负担，不过OB设计比较没有弹性。<br>在弹性(OO)和效率(OB)之间常常存在着取舍，在能够有效选择其一之前，必须清楚了解两者的行为和应用领域的需求。</p>
 
       
 
@@ -370,7 +238,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
@@ -437,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/09/%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/12/C++%E6%96%B0%E7%89%B9%E6%80%A7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -451,18 +319,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/12/02/C++%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C++笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/11/02/STL%E6%BA%90%E7%A0%81%E5%88%A8%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《STL源码剖析》笔记</div>
+    <a href="/2021/12/02/C++%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -489,7 +348,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFC-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">什么是C++对象模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">关于对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E4%B8%8A%E5%B0%81%E8%A3%85%E4%B9%8B%E5%90%8E%E7%9A%84%E5%B8%83%E5%B1%80%E6%88%90%E6%9C%AC"><span class="toc-number">2.1.</span> <span class="toc-text">加上封装之后的布局成本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-C-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">1.1 C++对象模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%EF%BC%88a-simple-object-model%EF%BC%89"><span class="toc-number">2.2.1.</span> <span class="toc-text">简单对象模型（a simple object model）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC%E9%A9%B1%E5%8A%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%EF%BC%88a-table-driven-object-model%EF%BC%89"><span class="toc-number">2.2.2.</span> <span class="toc-text">表格驱动对象模型（a table-driven object model）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.3.</span> <span class="toc-text">c++对象模型.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E4%B8%8A%E7%BB%A7%E6%89%BF%EF%BC%88adding-inheritance%EF%BC%89"><span class="toc-number">2.2.4.</span> <span class="toc-text">加上继承（adding inheritance）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%E5%A6%82%E4%BD%95%E5%BD%B1%E5%93%8D%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.5.</span> <span class="toc-text">对象模型如何影响程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%85%B3%E9%94%AE%E8%AF%8D%E6%89%80%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="toc-number">2.3.</span> <span class="toc-text">1.2 关键词所带来的差异</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%BA%94%E8%AF%A5%E4%BB%A5struct%E5%8F%96%E4%BB%A3class%EF%BC%9F"><span class="toc-number">2.3.1.</span> <span class="toc-text">什么情况下一个人应该以struct取代class？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%96%E7%95%A5%E6%80%A7%E6%AD%A3%E7%A1%AE%E7%9A%84c"><span class="toc-number">2.3.2.</span> <span class="toc-text">策略性正确的c++</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8c-%E4%B8%AD%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8strut%EF%BC%9F"><span class="toc-number">2.3.3.</span> <span class="toc-text">如何在c++中正确使用strut？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="toc-number">2.4.</span> <span class="toc-text">1.3 对象的差异</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#c-%E6%94%AF%E6%8C%81%E5%A4%9A%E6%80%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.1.</span> <span class="toc-text">c++支持多态的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.4.2.</span> <span class="toc-text">指针的类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E4%B8%8A%E5%A4%9A%E6%80%81%E4%B9%8B%E5%90%8E-Add-Polymorphism"><span class="toc-number">2.4.3.</span> <span class="toc-text">加上多态之后 (Add Polymorphism)</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#C-11%E6%96%B0%E7%89%B9%E6%80%A7%E6%8F%90%E7%BA%B2"><span class="toc-number">1.</span> <span class="toc-text">C++11新特性提纲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E5%8F%AF%E7%94%A8%E6%80%A7%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">语言可用性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E8%BF%90%E8%A1%8C%E6%9C%9F%E7%9A%84%E5%BC%BA%E5%8C%96%EF%BC%9A"><span class="toc-number">1.0.2.</span> <span class="toc-text">语言运行期的强化：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%EF%BC%9A"><span class="toc-number">1.0.3.</span> <span class="toc-text">容器：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E5%88%B6%E9%80%A0%E4%B8%8E%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.0.4.</span> <span class="toc-text">智能制造与内存管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.0.5.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91"><span class="toc-number">1.0.6.</span> <span class="toc-text">并行与并发</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
