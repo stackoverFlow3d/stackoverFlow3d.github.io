@@ -163,6 +163,153 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-个人的引擎研发春招经验贴" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/10/%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BC%95%E6%93%8E%E7%A0%94%E5%8F%91%E6%98%A5%E6%8B%9B%E7%BB%8F%E9%AA%8C%E8%B4%B4/">个人的引擎研发工程师春招经验</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/10/%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BC%95%E6%93%8E%E7%A0%94%E5%8F%91%E6%98%A5%E6%8B%9B%E7%BB%8F%E9%AA%8C%E8%B4%B4/" class="archive-article-date">
+  	<time datetime="2022-03-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本人数字媒体技术专业的学生，大三开学比较迷茫，2021.11月确定要做游戏引擎岗，遂开始准备。2022年3月初收到网易引擎研发暑期实习意向书，春招结束。把自己这段时间的学习路线分享一下，仅供参考~</p>
+<h1 id="学习路线"><a href="#学习路线" class="headerlink" title="学习路线"></a>学习路线</h1><p>主要内容我是在大三完成的，但是大一大二也有一定的基础（比如学习过c++基本语法，学习过使用引擎，学习过入门级别的图形学以及计算机的基础，高等数学线性代数离散数学基础）</p>
+<h2 id="图形学"><a href="#图形学" class="headerlink" title="图形学"></a>图形学</h2><h3 id="图形学基础"><a href="#图形学基础" class="headerlink" title="图形学基础"></a>图形学基础</h3><p>我认为入门图形学需要项目驱动，结合理论知识，这个阶段培养热情和积累基础知识很重要</p>
+<ul>
+<li>Games101系列：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1X7411F744">https://www.bilibili.com/video/BV1X7411F744</a></li>
+<li>《Unity shader入门精要》很精要，前面是基础后面手把手带你实现了很多shader效果</li>
+<li>《Fundamentals of Computer Graphics 4th》真的很基础而且很厚，101推荐读物，我觉得没必要看完</li>
+<li>一个周末实现光追渲染器，不需要代码基础：<a target="_blank" rel="noopener" href="https://raytracing.github.io/books/RayTracingInOneWeekend.html">https://raytracing.github.io/books/RayTracingInOneWeekend.html</a></li>
+<li>500行的光栅化渲染器，帮助你理解渲染流水线工作原理：<a target="_blank" rel="noopener" href="https://github.com/ssloy/tinyrenderer/wiki/Lesson-0:-getting-started">https://github.com/ssloy/tinyrenderer/wiki/Lesson-0:-getting-started</a></li>
+<li>数学基础：大部分人都够，这篇文章里面提到的图形学书大部分都会专门有一章讲数学</li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li><p>图形学有几个算法很常见，需要记熟，这部分需要建立在对流水线的理解上（自然而然会积累很多）</p>
+</li>
+<li><p>后处理算法：常见的后处理算法（Bloom，高斯模糊，运动模糊，ssao，ssr，sobel算子等等）需要实现并且记住算法，入门精要已经讲的很好了可以跟着做，视频可以看百人计划<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a3411z7LC">https://www.bilibili.com/video/BV1a3411z7LC</a></p>
+</li>
+<li><p>熟悉至少四种抗锯齿算法：同上，要会分析优势和劣势，以及使用环境（比如MSCC不适合用在延迟渲染）</p>
+</li>
+<li><p>光栅化算法：画线，扫描转换，裁剪等算法，可以看东北大学的《计算机图形学》网课以及配套教材，但是面试考的貌似比较少</p>
+</li>
+</ul>
+<h3 id="图形Api"><a href="#图形Api" class="headerlink" title="图形Api"></a>图形Api</h3><p>openGL，dx，vulkan至少会一种，不知道学什么就学openGL，有信心就学dx，shader的话和你的Api相对应，如果目标是ta不接触底层api的话就用引擎提供的着色语言或者蓝图语言</p>
+<ul>
+<li>learnopengl：非常好的教程，有很棒的中文翻译<a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">https://learnopengl-cn.github.io/</a></li>
+<li>dx看龙书，可以先从11学起，我现在正在学习中</li>
+</ul>
+<p>gpu的底层原理最好也要知道，多看看博客什么的（面试被问到gpu处理浮点数的方式）</p>
+<h3 id="PBR"><a href="#PBR" class="headerlink" title="PBR"></a>PBR</h3><p>PBR、brdf是目前的重要研究领域，现在几乎必须知道</p>
+<ul>
+<li>《PBR白皮书》把PBR的重点全部提炼出来了<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53086060">https://zhuanlan.zhihu.com/p/53086060</a></li>
+<li>《learn openGL》PBR讲的比较好理解<a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/07%20PBR/01%20Theory/">https://learnopengl-cn.github.io/07%20PBR/01%20Theory/</a></li>
+<li>games101ray tracing的后两讲推导了brdf，202整个都有涉及</li>
+</ul>
+<h3 id="实时渲染"><a href="#实时渲染" class="headerlink" title="实时渲染"></a>实时渲染</h3><p>实时渲染中包括很多技术，需要有一定的了解（比如延迟渲染，颜色空间，贴图技术，全局光照，npr等等）</p>
+<ul>
+<li>《rtr4》绝世武功的目录</li>
+<li>《rtr3提炼》目录中的目录，适合不习惯看英文书的初学者看</li>
+<li>Games202 建议至少看到第九课，<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YK4y1T7yY%EF%BC%8C%E5%90%8E%E9%9D%A2%E8%AE%B2%E7%9A%84%E6%98%AF%E5%AE%9E%E6%97%B6%E5%85%89%E8%BF%BD%E6%AF%94%E8%BE%83%E5%81%8F%E5%AD%A6%E6%9C%AF%E4%BA%86">https://www.bilibili.com/video/BV1YK4y1T7yY，后面讲的是实时光追比较偏学术了</a></li>
+</ul>
+<p>除了这些之外没事多水水博客，总有收获的</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><ul>
+<li>《C++ Primer》如果你没有任何代码基础可以看，内容实在太基础了，而且很厚，很多人推荐但是我觉得没必要看</li>
+<li>C++内存模型：《深度探索C++对象模型》，这方面是本人的弱项但必须掌握，如果只背面经是经不起追问的</li>
+<li>C11:<a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/00-preface/%EF%BC%8C%E5%BE%88%E8%96%84%E4%B8%80%E4%B8%8B%E5%B0%B1%E7%9C%8B%E5%AE%8C%E4%BA%86%EF%BC%8C%E5%AE%B9%E6%98%93%E5%BF%98%EF%BC%8C%E6%99%BA%E8%83%BD%E5%88%B6%E9%80%A0%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E7%AD%89%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E4%B8%9C%E8%A5%BF%E9%9C%80%E8%A6%81%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9C%8B%E5%85%B6%E4%BB%96%E5%8D%9A%E5%AE%A2%E4%BA%86%E8%A7%A3">https://changkun.de/modern-cpp/zh-cn/00-preface/，很薄一下就看完了，容易忘，智能制造和右值引用等比较复杂的东西需要进一步看其他博客了解</a></li>
+<li>《STL源码剖析》强烈推荐，本人的开窍书，一本引导你像工程师一样思考的书，源码之下了无秘密，编程如庖丁解牛</li>
+<li>面经 《C++面试手册》：<a target="_blank" rel="noopener" href="https://interview.huihut.com/#/">https://interview.huihut.com/#/</a></li>
+</ul>
+<h2 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h2><ul>
+<li>《STL源码剖析》大部分容器库都是原自stl，算法方面把比较复杂的数据结构如rb-tree、hashmap等讲的很清楚，更棒的是能帮你建立一种根据需求分析使用的数据结构的思想</li>
+<li>《算法导论》虽然是一本很厚的书，但是讲的很详细，基本囊括了所有的数据结构和算法思想，对某方面知识不懂的可以翻查</li>
+<li>剑指offer：面试常考的30多道题目，做完</li>
+<li>排序算法 快排、堆排序必须了解，各种算法的复杂度、最坏复杂度、使用的环境必须要会分析（不要背）</li>
+<li>刷题，多思考多总结，我也就刷了一百来题但是三次面试的算法题都挺顺利的</li>
+</ul>
+<h2 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h2><p>我们专业不是很注重这方面的培养，因此本人这块不是很擅长，但是面试的时候发现这些知识看似没发帮助你做出东西，其实对工程师来说非常重要！包括计算机组成原理，编译原理，操作系统等。</p>
+<h2 id="游戏引擎架构"><a href="#游戏引擎架构" class="headerlink" title="游戏引擎架构"></a>游戏引擎架构</h2><p>可以根据《游戏引擎架构》中介绍的部分按照喜好进行研究，属于加分项，包括但不限于</p>
+<ul>
+<li>动画</li>
+<li>物理模拟</li>
+<li>粒子系统</li>
+<li>……</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上面是我收集到的对引擎工程师有用的学习资料，仅供参考。这段时间的默默学习终于有了回报，祝各位也都能实现自己的目标！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习路线</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/10/%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%BC%95%E6%93%8E%E7%A0%94%E5%8F%91%E6%98%A5%E6%8B%9B%E7%BB%8F%E9%AA%8C%E8%B4%B4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-实现队列的三种思路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -263,7 +410,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/12/C++%E6%96%B0%E7%89%B9%E6%80%A7/">C++11新特性总结</a>
+      <a class="article-title" href="/2022/01/12/C++%E6%96%B0%E7%89%B9%E6%80%A7/">C++11新特性梳理</a>
     </h1>
   
 
@@ -277,8 +424,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p><a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/00-preface/">https://changkun.de/modern-cpp/zh-cn/00-preface/</a></p>
-<p><a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/00-preface/">https://changkun.de/modern-cpp/zh-cn/00-preface/</a></p>
+<p>现代C++教程：<a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/00-preface/">https://changkun.de/modern-cpp/zh-cn/00-preface/</a></p>
+<p>参考资料：现代C++教程：<a target="_blank" rel="noopener" href="https://changkun.de/modern-cpp/zh-cn/00-preface/">https://changkun.de/modern-cpp/zh-cn/00-preface/</a></p>
         
           <a class="article-more-a" href="/2022/01/12/C++%E6%96%B0%E7%89%B9%E6%80%A7/#more">more >></a>
         
@@ -825,11 +972,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Unity</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">解谜</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">解谜</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Unity</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -929,15 +1076,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Unity</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">恐怖</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Unity</a>
         		</li>
       		
 		</ul>
@@ -963,114 +1110,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/12/20/%E5%86%85%E5%8D%B7%E6%83%8A%E9%AD%82/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-基于MR的智能工业装配辅助系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/20/%E5%9F%BA%E4%BA%8EMR%E7%9A%84%E6%99%BA%E8%83%BD%E5%B7%A5%E4%B8%9A%E8%A3%85%E9%85%8D%E8%BE%85%E5%8A%A9%E7%B3%BB%E7%BB%9F/">基于MR的智能工业装配辅助系统</a>
-    </h1>
-  
-
-        
-        <a href="/2020/12/20/%E5%9F%BA%E4%BA%8EMR%E7%9A%84%E6%99%BA%E8%83%BD%E5%B7%A5%E4%B8%9A%E8%A3%85%E9%85%8D%E8%BE%85%E5%8A%A9%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-12-20T04:41:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>团队：数字媒体技术2019级成员</p>
-<p>游戏引擎：Unity</p>
-<p>制作日程：2021年3月~未解题</p>
-<p>游戏类型：3D工业仿真</p>
-<p>创作背景：大学生创新创业训练项目</p>
-<img src="https://i.loli.net/2021/08/12/FEbQSoilWrPevUc.png" alt="SKN_5_LE__YSPGK__D_P_BR.png" style="zoom:50%;" />
-
-<p>简介：这是一款MR的工业仿真应用，demo运行在MR眼镜上，通过手势识别模拟工业装配的过程。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Unity</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工业</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数字孪生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/作品集//" class="article-tag-list-link color4">作品集</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/作品集/数字孪生//" class="article-tag-list-link color5">数字孪生</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/20/%E5%9F%BA%E4%BA%8EMR%E7%9A%84%E6%99%BA%E8%83%BD%E5%B7%A5%E4%B8%9A%E8%A3%85%E9%85%8D%E8%BE%85%E5%8A%A9%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
         </p>
       
 
@@ -1193,15 +1232,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Unity</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1217,7 +1248,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Unity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习路线</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1229,19 +1272,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">2D</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">射击</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计划</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">2D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">射击</a>
               </li>
             
             <div class="clearfix"></div>
